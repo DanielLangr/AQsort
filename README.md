@@ -1,2 +1,1 @@
-# aqsort
-Alternative QuickSort
+# AQsort
