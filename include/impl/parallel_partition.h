@@ -1,5 +1,5 @@
-#ifndef AQ_SORT_IMPL_PARALLEL_PARTITION_H
-#define AQ_SORT_IMPL_PARALLEL_PARTITION_H
+#ifndef AQSORT_IMPL_PARALLEL_PARTITION_H
+#define AQSORT_IMPL_PARALLEL_PARTITION_H
 
 #include <omp.h>
 
@@ -8,12 +8,12 @@
 
 #include "sequential_partition.h"
 
-namespace aq
+namespace aqsort
 {
     namespace impl
     {
         // alias for block size
-        static const std::size_t B = AQ_PARALLEL_PARTITION_BLOCK_SIZE;
+        static const std::size_t B = AQSORT_PARALLEL_PARTITION_BLOCK_SIZE;
 
         template<typename Comp, typename Swap>
         std::size_t parallel_partition(const std::size_t start, const std::size_t n, const std::size_t pivot,

@@ -1,18 +1,18 @@
-#ifndef AQ_SORT_H
-#define AQ_SORT_H
+#ifndef AQSORT_AQSORT_H
+#define AQSORT_AQSORT_H
 
 #include <cstddef>
 
 // threshold for using insert sort instead of quick sort in sequential sorting
-#ifndef AQ_SORT_INSERT_SORT_THRESHOLD 
-#define AQ_SORT_INSERT_SORT_THRESHOLD (16)
+#ifndef AQSORT_INSERT_SORT_THRESHOLD 
+#define AQSORT_INSERT_SORT_THRESHOLD (16)
 #endif
 
 #include "impl/sequential_sort.h"
 
 // blocks size used by paralell partitioning algorithm
-#ifndef AQ_PARALLEL_PARTITION_BLOCK_SIZE
-#define AQ_PARALLEL_PARTITION_BLOCK_SIZE (1024)
+#ifndef AQSORT_PARALLEL_PARTITION_BLOCK_SIZE
+#define AQSORT_PARALLEL_PARTITION_BLOCK_SIZE (1024)
 #endif
 
 #ifdef _OPENMP
@@ -24,7 +24,7 @@
  * lead to segmentation fault (Intel compiler). Thus, passing as constant pointers.
  */
 
-namespace aq
+namespace aqsort
 {
 #ifdef _OPENMP
     template <typename Comp, typename Swap>
