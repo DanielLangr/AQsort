@@ -40,7 +40,7 @@ namespace aqsort
                 if (P < 2) {
                     // sequential sort
 //#pragma omp task untied firstprivate(comp, swap)
-#pragma omp task firstprivate(comp, swap)
+//#pragma omp task firstprivate(comp, swap)
                     sequential_sort(start, n, comp, swap, level);
                     return;
                 }
