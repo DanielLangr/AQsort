@@ -19,16 +19,10 @@
 #include "impl/parallel_sort.h"
 #endif
 
-/* 
- * Passing instance references to OpenMP tasks as shared variables can
- * lead to segmentation fault (Intel compiler). Thus, passing as constant pointers.
- */
-
 namespace aqsort
 {
 #ifdef _OPENMP
     template <typename Comp, typename Swap>
- // inline void parallel_sort(std::size_t length, Comp& comp, Swap& swap)
     inline void parallel_sort(std::size_t length, Comp* const comp, Swap* const swap)
     {
         impl::parallel_sort(length, comp, swap);
@@ -36,14 +30,12 @@ namespace aqsort
 #endif
 
     template <typename Comp, typename Swap>
- // inline void sequential_sort(std::size_t length, Comp& comp, Swap& swap)
     inline void sequential_sort(std::size_t length, Comp* const comp, Swap* const swap)
     {
         impl::sequential_sort(length, comp, swap);
     }
 
     template <typename Comp, typename Swap>
- // inline void sort(std::size_t length, Comp& comp, Swap& swap)
     inline void sort(std::size_t length, Comp* const comp, Swap* const swap)
     {
 #ifdef _OPENMP
