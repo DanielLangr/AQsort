@@ -4,8 +4,8 @@
 #include <cstddef>
 
 // threshold for using insert sort instead of quick sort in sequential sorting
-#ifndef AQSORT_INSERT_SORT_THRESHOLD 
-#define AQSORT_INSERT_SORT_THRESHOLD (16)
+#ifndef AQSORT_INSERTION_SORT_THRESHOLD 
+#define AQSORT_INSERTION_SORT_THRESHOLD (16)
 #endif
 
 #include "impl/sequential_sort.h"

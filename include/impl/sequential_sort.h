@@ -13,7 +13,7 @@ namespace aqsort
     namespace impl
     {
         template<typename Comp, typename Swap>
-        inline void insert_sort(std::size_t start, std::size_t n, Comp* const comp, Swap* const swap)
+        inline void insertion_sort(std::size_t start, std::size_t n, Comp* const comp, Swap* const swap)
         {
             // avoid unnecessary calling performance penalty
             assert (n > 1);
@@ -50,7 +50,7 @@ namespace aqsort
             assert (n > 0);
 
             // quick sort need to be invoked with at least 2 elements
-            assert (AQSORT_INSERT_SORT_THRESHOLD > 1);
+            assert (AQSORT_INSERTION_SORT_THRESHOLD > 1);
 
             // tail-recursion removal loop
             while (true) {
@@ -85,16 +85,16 @@ namespace aqsort
                     greater_than--;
 
                 if (less_than > greater_than) {
-                    if (greater_than > AQSORT_INSERT_SORT_THRESHOLD)
+                    if (greater_than > AQSORT_INSERTION_SORT_THRESHOLD)
                         quick_sort(start + n - greater_than, greater_than, comp, swap, level);
-                    if (less_than <= AQSORT_INSERT_SORT_THRESHOLD)
+                    if (less_than <= AQSORT_INSERTION_SORT_THRESHOLD)
                         break;
                     n = less_than;
                 }
                 else {
-                    if (less_than > AQSORT_INSERT_SORT_THRESHOLD)
+                    if (less_than > AQSORT_INSERTION_SORT_THRESHOLD)
                         quick_sort(start,                 less_than,       comp, swap, level);
-                    if (greater_than <= AQSORT_INSERT_SORT_THRESHOLD)
+                    if (greater_than <= AQSORT_INSERTION_SORT_THRESHOLD)
                         break;
                     start += n - greater_than;
                     n = greater_than;
@@ -110,10 +110,10 @@ namespace aqsort
             if (n <= 1)
                 return;
 
-            if (n > AQSORT_INSERT_SORT_THRESHOLD) {
+            if (n > AQSORT_INSERTION_SORT_THRESHOLD) {
                 quick_sort(start, n, comp, swap, max_level);
             }
-            insert_sort(start, n, comp, swap);
+            insertion_sort(start, n, comp, swap);
         }
 
         template<typename Comp, typename Swap>
