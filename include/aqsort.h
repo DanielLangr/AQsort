@@ -19,6 +19,7 @@
 #endif
 
 #include "impl/parallel_sort.h"
+
 #endif
 
 namespace aqsort
