@@ -5,17 +5,19 @@
 
 // threshold for using insert sort instead of quick sort in sequential sorting
 #ifndef AQSORT_INSERTION_SORT_THRESHOLD 
-#define AQSORT_INSERTION_SORT_THRESHOLD (16)
+#define AQSORT_INSERTION_SORT_THRESHOLD 16
 #endif
 
 #include "impl/sequential_sort.h"
 
+// parallel sorting stuff:
+#ifdef _OPENMP
+
 // blocks size used by paralell partitioning algorithm
 #ifndef AQSORT_PARALLEL_PARTITION_BLOCK_SIZE
-#define AQSORT_PARALLEL_PARTITION_BLOCK_SIZE (1024)
+#define AQSORT_PARALLEL_PARTITION_BLOCK_SIZE 1024
 #endif
 
-#ifdef _OPENMP
 #include "impl/parallel_sort.h"
 #endif
 
