@@ -48,7 +48,7 @@ namespace aqsort
 
 // must be called by single thread only
 #pragma omp parallel num_threads(P) default(none) \
-    firstprivate(comp, swap, threads_left, threads_start, threads_end) \
+    firstprivate(comp, swap, threads_left, threads_start, threads_end, pivot, P, start, n) \
     shared(less_than, left_thread, right_thread, global_left, global_right)
             {
                 const std::size_t p = omp_get_thread_num();
